@@ -9,17 +9,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.facedetection.ui.theme.FaceDetectionTheme
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.FaceDetection
 import com.google.mlkit.vision.face.FaceDetectorOptions
@@ -87,11 +77,11 @@ class MainActivity : AppCompatActivity() {
                     var resultText = " "
 
                     for (face in faces){
-                        var i = 1;
+                        var i = 0;
                         resultText = "Face number: $i\n"+
-                                "Smile percentage: ${face.smilingProbability?.times(100)}\n"+
-                                "Left eye open: ${face.leftEyeOpenProbability?.times(100)}\n"+
-                                "Right eye open: ${face.rightEyeOpenProbability?.times(100)}"
+                                "\nSmile percentage: ${face.smilingProbability?.times(100)}%"+
+                                "\nLeft eye open: ${face.leftEyeOpenProbability?.times(100)}%"+
+                                "\nRight eye open: ${face.rightEyeOpenProbability?.times(100)}%"
                         i++
                     }
                     if (faces.isEmpty()){
